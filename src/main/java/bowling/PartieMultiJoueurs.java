@@ -28,7 +28,7 @@ public class PartieMultiJoueurs implements IPartieMultiJoueurs{
 		if (estTerminer()) throw  new IllegalStateException("La partie est terminée");
 		PartieMonoJoueur partieJoueur = lesParties.get(nomsDesJoueurs[tourJoueurNo]);
 		partieJoueur.enregistreLancer(nombreDeQuillesAbattues);
-		if (partieJoueur.numeroProchainLancer() == 1) tourJoueurNo = (tourJoueurNo+1)%nbJoueur;
+		if (partieJoueur.numeroProchainLancer() == 1 || partieJoueur.estTerminee()) tourJoueurNo = (tourJoueurNo+1)%nbJoueur;
 		if (estTerminer()) return "Partie terminée";
 		return tourJoueur();
 	}
